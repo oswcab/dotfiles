@@ -1,0 +1,119 @@
+" General configuration
+set highlightedyank
+set ideajoin
+set idearefactormode=keep
+" set number relativenumber
+set surround
+set NERDTree
+set ReplaceWithRegister
+set multiple-cursors
+
+sethandler <C-B> a:vim
+sethandler <C-D> a:vim
+sethandler <C-G> a:vim
+sethandler <C-I> a:vim
+sethandler <c-j> a:vim
+sethandler <c-k> a:vim
+sethandler <C-M> a:vim
+sethandler <C-O> a:vim
+sethandler <C-R> a:vim
+sethandler <C-S> a:vim
+sethandler <C-T> a:vim
+sethandler <C-U> a:vim
+sethandler <C-W> a:vim
+sethandler <C-X> a:vim
+sethandler <C-Z> a:vim
+
+" Handle system and IDE clipboard
+set clipboard+=unnamed
+set clipboard+=ideaput
+
+" Open and reload the configuration
+nnoremap \e :e ~/.ideavimrc<CR>
+nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
+
+let mapleader=" "
+
+" windows splits
+nnoremap <c-\> :action SplitVertically<CR>
+nnoremap <c--> :action SplitHorizontally<CR>
+nnoremap <c-=> :action Unsplit<CR>
+nnoremap <c-m> :action MoveEditorToOppositeTabGroup<CR>
+
+"  windows movements
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+
+nnoremap <Leader>en :action EditSourceInNewWindow<CR>
+nnoremap <Leader>n :action NextWindow<CR>
+
+nnoremap <Leader>q :action CloseContent<CR>
+nnoremap <Leader>qa :action CloseAllEditors<CR>
+
+" NERDTree
+nnoremap <Leader>e :NERDTreeToggle<CR>
+
+nnoremap dd "+dd
+vnoremap d "+d
+
+nnoremap p "+p
+vnoremap p "+p
+nnoremap P "+P
+vnoremap P "+P
+
+nnoremap yy "+yy
+vnoremap y "+y
+
+" Open a terminal in the folder of the open file
+nnoremap <c-t> :action ActivateTerminalToolWindow<CR>
+nnoremap <leader>t :action Terminal.OpenInTerminal<CR>
+
+" Other movements
+nnoremap [[ :action MethodUp<CR>
+nnoremap ]] :action MethodDown<CR>
+
+" refactoring
+nnoremap <leader>r :action Refactorings.QuickListPopupAction<CR>
+nnoremap <Leader>= :action ReformatCode<CR>
+nnoremap <leader>o :action OptimizeImports<CR>
+
+" history
+nnoremap <c-f> :action RecentFiles<CR>
+nnoremap <leader>l :action RecentLocations<CR>
+nnoremap <leader>h  :action LocalHistory.ShowHistory<CR>
+
+" code navigation
+nnoremap gd :action GotoDeclaration<CR>
+nnoremap gh :action ShowErrorDescription<CR>
+nnoremap gi :action GotoImplementation<CR>
+nnoremap gp :action GotoSuperMethod<CR>
+nnoremap gt :action GotoTest<CR>
+
+nnoremap <leader>u :action FindUsages<CR>
+nnoremap <leader>s :action GotoRelated<CR>
+nnoremap <leader>h :action CallHierarchy<CR>
+nnoremap <leader>b :action ShowNavBar<CR>
+
+nnoremap <c-o> :action Back<CR>
+nnoremap <c-i> :action Forward<CR>
+
+nnoremap <leader>w :write<CR>
+
+" Distraction free mode
+nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
+
+nnoremap <c-p> :action JumpToLastWindow<CR>
+nnoremap <c-x> :action HideAllWindows<CR>
+
+" Running and debugging
+nnoremap ,b :action ToggleLineBreakpoint<CR>
+nnoremap ,c :action RunClass<CR>
+nnoremap ,d :action ContextDebug<CR>
+nnoremap ,f :action RerunFailedTests<CR>
+nnoremap ,n :action ActivateDebugToolWindow<CR>
+nnoremap ,o :action ChooseRunConfiguration<CR>
+nnoremap ,r :action ContextRun<CR>
+nnoremap ,t :action ActivateRunToolWindow<CR>
+nnoremap ,u :action Rerun<CR>

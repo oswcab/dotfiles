@@ -1,0 +1,43 @@
+#!/bin/bash
+
+readonly msgId="991002"
+
+die() {
+    echo "Fatal: $1"
+    exit 1
+}
+
+default_source=$(pactl get-default-sink) 
+if [[ ! $default_source ]]; then
+    die "Unable to gather the audio default sink"
+fi
+index=$(pactl -f json list sinks | jq ".[] | select(.name == \"$default_source\").index")
+if [[ ! $index ]]; then
+    die "Unable to get the default sink's index"
+fi
+
+case "$1" in
+    "up")
+        pactl set-sink-volume "$index" +5%
+        ;;
+    "down")
+        pactl set-sink-volume "$index" -5%
+        ;;
+    "toggle")
+        pactl set-sink-mute "$index" toggle
+        ;;
+    *)
+        die "One of 'up' 'down' or 'mute' is required as an argument"
+        ;;
+esac
+
+volume=$(pactl -f json list sinks | jq -r --arg idx "$index" '.[] | select(.index == ($idx | tonumber)).volume."front-left".value_percent')
+message="$volume"
+is_muted=$(pactl -f json list sinks | jq -r --arg idx "$index" '.[] | select(.index == ($idx | tonumber)).mute')
+if $is_muted; then
+    message=🔇
+fi
+
+dunstify -u low -r "$msgId" "Volume: $message"
+
+
