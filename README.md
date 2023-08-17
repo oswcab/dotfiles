@@ -1,3 +1,3 @@
 # dotfiles
 
-Repostory to be used by chezmoi
+Repository to be used by chezmoi
