@@ -1,6 +1,6 @@
 [user]
   name = Hector Oswaldo Caballero
-  email = hoc@kaloom.com
+  email = 
   username = oswcab
 [core]
   editor = nvim
@@ -33,6 +33,7 @@
   navigate = true
 [alias]
   a = add
+  aa = add --all
   all = add .
   bl = blame
   br = branch
