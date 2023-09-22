@@ -1,6 +1,6 @@
 "$schema" = '_https://starship.rs/config-schema.json'
 
-add_newline = false
+add_newline = true
 
 command_timeout = 1000
 
@@ -20,10 +20,14 @@ scan_timeout = 200
 
 [character]
 success_symbol = "[❯](green)"
-error_symbol = "[❯](red)"
-vicmd_symbol = "[❮](green)"
+error_symbol = "[⛔](bold red)"
+vicmd_symbol = "[V](bold green)"
+
+[container]
+style = "red dimmed"
 
 [directory]
+home_symbol = "🏠"
 style = "cyan"
 truncation_length = 0
 truncate_to_repo = false
