@@ -17,8 +17,8 @@ return {
     ["<leader>b"]  = { name = "Buffers" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
-    ["A-<left>"]   = { "<cmd>:bp<cr>", desc = "Move to previous buffer" },
-    ["A-<right>"]  = { "<cmd>:bn<cr>", desc = "Move to next buffer" },
+    -- ["A-<left>"]   = { "<cmd>:bp<cr>", desc = "Move to previous buffer" },
+    -- ["A-<right>"]  = { "<cmd>:bn<cr>", desc = "Move to next buffer" },
   },
   t = {
     -- setting a mapping to false will disable it
