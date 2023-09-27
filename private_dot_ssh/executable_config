@@ -1,0 +1,44 @@
+LogLevel QUIET
+
+Host *
+    ConnectTimeout 30	
+    Compression yes
+    IdentityFile ~/.ssh/id_ed25519
+    ServerAliveInterval 30
+    ServerAliveCountMax 10
+    StrictHostKeyChecking=no
+    UserKnownHostsFile=/dev/null
+
+# homelab
+Host proxmox
+    Hostname 192.168.100.111
+    User oswcab
+
+Host omada
+    Hostname 192.168.100.102
+    User oswcab
+
+Host docker
+    Hostname 192.168.100.103
+    User oswcab
+
+Host pihole
+    Hostname 192.168.100.104
+    User oswcab
+
+# Local VMs
+# Host f38VM
+#     Hostname 192.168.122.99
+#     User oswcab
+
+# ///
+Host ecn-*
+    User ehccaeb
+
+Host ecn-sero
+    Hostname 10.63.198.5
+
+Host ecn-vm
+    Hostname 10.87.91.216
+    ProxyJump ecn-sero
+
